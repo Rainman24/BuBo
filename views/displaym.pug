@@ -1,0 +1,64 @@
+html
+	head
+		title View Messages
+	
+	body
+		ul.nav
+			li
+				a(href='/') Add a message
+	div.allmessages
+		each item in messages
+			li#msgtitle #{item.title}
+			li#msgbody #{item.body}
+
+style.
+	body {
+	margin: 0;
+	padding: 0;
+	}
+
+	.nav {
+	width: 100%;
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	background-color: green;
+	}
+
+	.nav li {
+	text-align: center;
+	text-transform: uppercase;
+	font-family: Arial;
+	padding: 15px;
+	font-size: 30px;
+	}
+
+	.allmessages {
+	list-style: none;
+	display: block;
+	position: absolute;
+	top:20%;
+	left:25%;
+	width: 50%;
+	margin: 10 auto;
+	}
+
+	#msgtitle {
+	background-color: grey;
+	width: 90%;
+	margin: auto;
+	padding: 5px;
+	padding-left: 20px;
+	font-weight: bold;
+	}
+
+	#msgbody {
+	padding: 20px;
+	border: 1px solid grey;
+	}
+
+	a {
+	color: white;
+	text-decoration: none;
+	}

@@ -1,0 +1,180 @@
+html
+	head
+		title Bulletin Board
+	body
+		
+		ul.nav
+			li
+				a(href='/viewmessages') Check all messages
+
+		div.frame
+			div.authory
+				ul.authory(onclick='toggleVisibility()')
+					//- 
+					li#signup Sign Up
+					li#login Login
+			div.droplog#dropp
+				form.droplog(method='POST' action='/profile')
+					//- label.droplog(for='username') Username:
+					input.droplog#username(name='username' type='text')
+					//- label.droplog(for='password') Password:
+					input.droplog#password(name='password' type='text')
+					input.droplog#confirm(type='submit' value='Submit')
+
+			div.forminput
+
+				form(method='POST' action='/addmessage')
+					label(for='title') Title:
+					input#titleinput(name='title' type='text')
+					label(for='body') Message:
+					input#bodyinput(name='body' type='text')
+					input#submitbtn(type='submit' value='Submit')
+
+script.
+	function toggleVisibility() {
+	var e = document.getElementById('dropp');
+	console.log(e.classList)
+	if(e.classList.length===2)
+		{e.classList.remove('drophm')}
+	else {
+	e.classList.add('drophm')}
+		
+	}
+
+style.
+	body {
+	margin: 0;
+	padding: 0;
+	}
+
+
+	.frame {
+	width: 50%;
+	margin: auto;
+	height: 100vh;
+	border-left: 4px solid black;
+	border-right: 4px solid black;
+	box-sizing: border-box;
+	}
+
+
+	.nav {
+	width: 100%;
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	background-color: green;
+	}
+
+	.nav li {
+	text-align: center;
+	text-transform: uppercase;
+	font-family: Arial;
+	padding: 15px;
+	font-size: 30px;
+	}
+
+	.droplog {
+	width: 100%;
+	background-color: orange;
+	margin: 0;
+	padding: 0;
+	}
+
+	.drophm{
+	visibility: hidden;
+	}
+	
+	.droplog form {
+	display: inline-block;
+	}
+
+	.droplog input {
+	width: 33.3%;
+	display: inline-block;
+	float: left;
+	box-sizing: border-box;
+	background-color: white;
+	margin: 10px 10px;
+	}
+
+	#confirm {
+	width: 20%;
+	}
+
+	.forminput {
+	display: block;
+	position: absolute;
+	top:22%;
+	left:25%;
+	width: 50%;
+	}
+
+	form {
+	display: block;
+	margin: auto;
+	padding: 20px;
+	}
+
+	input, label {
+	width: 40%;
+	display: block;
+	margin: 5px auto;
+	padding: 4px;
+	}
+
+	label {
+	width: 50%;
+	background-color: black;
+	color: white;
+	font-family: Arial;
+	margin-top: 20px;
+	}
+
+	.authory ul {
+	width: 100%;
+	background-color: grey;
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	}
+
+	.authory li {
+	display: inline-block;
+	float: left;
+	width: 50%;
+	text-align: center;
+	padding: 10px;
+	box-sizing: border-box;
+	}
+
+	#bodyinput {
+	height: 40vh;
+	}
+
+	#submitbtn {
+	width: 20%;
+	margin: 20px auto;
+	background-color: grey;
+	text-transform: uppercase;
+	font-weight: bold;
+	}
+
+	a {
+	color: white;
+	text-decoration: none;
+	}
+
+	#submitbtn:hover {
+	background-color: red;
+	}
+
+	#signup:hover {
+	background: blue;
+	}
+
+	#login:hover {
+	background: yellow;
+	}
